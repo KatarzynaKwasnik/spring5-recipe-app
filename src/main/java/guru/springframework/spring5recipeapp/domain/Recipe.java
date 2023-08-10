@@ -18,9 +18,17 @@ public class Recipe {
     private String url;
     private String directions;
 
+    @ManyToMany
+    @JoinTable(name="recipe_category",
+            joinColumns = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")//recipe to nazwa propertisa z klasy Ingredient
     private Set<Ingredient> ingredients;
 
+    @Enumerated(value = EnumType.STRING) //ordinal - default, ale my chcemy raczej zachować string,
+    // zeby po dodaniu nowej opcji w środku w enumie liczby w BD odpowiadały rzeczywistej trudności
     private Difficulty difficulty;
 
     @Lob
@@ -91,6 +99,14 @@ public class Recipe {
 
     public void setDirections(String directions) {
         this.directions = directions;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     public Set<Ingredient> getIngredients() {
