@@ -1,7 +1,12 @@
 package guru.springframework.spring5recipeapp.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})//można wykluczyć pola podczas tworzenia motod equals i hashcode
+                                                            // lub w adnotacji @ToString
 @Entity
 public class Notes {
 
@@ -9,33 +14,13 @@ public class Notes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(mappedBy = "notes")
     private Recipe recipe;
 
     @Lob
     private String recipeNotes;
 
-    public Long getId() {
-        return id;
+    public Notes() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public String getRecipeNotes() {
-        return recipeNotes;
-    }
-
-    public void setRecipeNotes(String recipeNotes) {
-        this.recipeNotes = recipeNotes;
-    }
 }

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository //Jeśli implementujemy CrudRepository, to @Repository można pominąć
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
+
 }
