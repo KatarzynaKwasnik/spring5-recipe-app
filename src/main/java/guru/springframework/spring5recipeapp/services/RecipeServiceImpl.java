@@ -4,7 +4,6 @@ import guru.springframework.spring5recipeapp.domain.Recipe;
 import guru.springframework.spring5recipeapp.repositories.RecipeRepository;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
