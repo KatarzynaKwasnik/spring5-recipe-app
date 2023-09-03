@@ -20,13 +20,18 @@
 <!--/*@thymesVar id="recipes" type="java.util.List"*/-->
 <!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
 <div class="container-fluid" style="margin-top: 20px">
+
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+                <a class="btn btn-default" href="#" th:href="@{'/recipe/new'}" role="button">New Recipe</a>
+            </div>
             <div class="panel panel-primary">
 
                 <div class="panel-heading">
                     <h1 class="panel-title">My Recipes!</h1>
                 </div>
+
                 <div class="panel-body">
                     <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
                         <table class="table table-hover ">
