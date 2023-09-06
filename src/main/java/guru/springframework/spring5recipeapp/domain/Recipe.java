@@ -41,7 +41,7 @@ public class Recipe {
     private Difficulty difficulty;
 
     @Lob
-    private Byte[] image;
+    private Byte[] image;//Hibernate team zaleca używanie typów referencyjnych
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
